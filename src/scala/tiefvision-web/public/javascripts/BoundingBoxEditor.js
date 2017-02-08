@@ -11,10 +11,10 @@ var BoundingBoxEditor = function (imageName, left, right, top, bottom) {
   $scope.ctx = $scope.canvas.getContext("2d");
   $scope.scale = 0.5;
   $scope.boundingBox = { name: imageName }
-  $scope.boundingBox.left = left;
-  $scope.boundingBox.right = right;
-  $scope.boundingBox.top = top;
-  $scope.boundingBox.bottom = bottom;
+  $scope.boundingBox.left = parseInt(left);
+  $scope.boundingBox.right = parseInt(right);
+  $scope.boundingBox.top = parseInt(top);
+  $scope.boundingBox.bottom = parseInt(bottom);
   $scope.state = "bottomRight";
   console.log($scope.img)
   $scope.ctx.scale($scope.scale, this.scale);
@@ -34,10 +34,10 @@ var BoundingBoxEditor = function (imageName, left, right, top, bottom) {
   $scope.saveButton.addEventListener("click", function(){
      window.location = "/save_bounding_box?" +
       "name=" + $scope.boundingBox.name +
-      "&left=" + $scope.boundingBox.left +
-      "&right=" + $scope.boundingBox.right +
-      "&top=" + $scope.boundingBox.top +
-      "&bottom=" + $scope.boundingBox.bottom +
+      "&left=" + parseInt($scope.boundingBox.left) +
+      "&right=" + parseInt($scope.boundingBox.right) +
+      "&top=" + parseInt($scope.boundingBox.top) +
+      "&bottom=" + parseInt($scope.boundingBox.bottom) +
       "&width=" + $scope.width +
       "&height=" + $scope.height;
   });
